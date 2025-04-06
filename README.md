@@ -1,5 +1,6 @@
 # ContactBook
 # hand made contact book
+# display the menu
 def display_menu():
     print("Contact Book Menu:")
     print("1. Add Contact")
@@ -8,10 +9,10 @@ def display_menu():
     print("4. Delete Contact")
     print("5. List All Contacts")
     print("6. Exit")
-
+# option using choice 
     choice = input()
     return choice
-
+# add new contact 
 def add_contact(contact_book):
     name = input()        
     if name in contact_book:
@@ -26,7 +27,8 @@ def add_contact(contact_book):
         "address": address
     }
     print("Contact added successfully!")
-
+    
+# view saved contact via user name
 def view_contact(contact_book):
     name = input()
     if name in contact_book:
@@ -37,7 +39,8 @@ def view_contact(contact_book):
         print(f"Address: {contact['address']}")
     else:
         print("Contact not found!")
-
+        
+# edit the contact and update edited contact
 def edit_contact(contact_book):
     name = input()
     if name in contact_book:
@@ -55,7 +58,7 @@ def edit_contact(contact_book):
         print("Contact updated successfully!")
     else:
         print("Contact not found!")
-
+# delete contact 
 def delete_contact(contact_book):
     name = input()
     if name in contact_book:
@@ -64,6 +67,7 @@ def delete_contact(contact_book):
     else:
         print("Contact not found!")
 
+# listing the all contact
 def list_all_contacts(contact_book):
     if not contact_book:
         print("No contacts available.")
@@ -74,7 +78,8 @@ def list_all_contacts(contact_book):
             print(f"Email: {info['email']}")
             print(f"Address: {info['address']}")
             print() # Blank line between contacts for readability
-
+            
+# final result of above code using option choosing which defined by numbers
 contact_book = {}
 
 while True:
