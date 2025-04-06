@@ -1,101 +1,15 @@
-# ContactBook
-# hand made contact book
-# display the menu
-def display_menu():
-    print("Contact Book Menu:")
-    print("1. Add Contact")
-    print("2. View Contact")
-    print("3. Edit Contact")
-    print("4. Delete Contact")
-    print("5. List All Contacts")
-    print("6. Exit")
-# option using choice 
-    choice = input()
-    return choice
-# add new contact 
-def add_contact(contact_book):
-    name = input()        
-    if name in contact_book:
-        print("Contact already exists!")
-        return
-    phone = input()
-    email = input()
-    address = input()
-    contact_book[name] = {
-        "phone": phone,
-        "email":email,
-        "address": address
-    }
-    print("Contact added successfully!")
-    
-# view saved contact via user name
-def view_contact(contact_book):
-    name = input()
-    if name in contact_book:
-        contact = contact_book[name]
-        print(f"Name: {name}")
-        print(f"Phone: {contact['phone']}")
-        print(f"Email: {contact['email']}")
-        print(f"Address: {contact['address']}")
-    else:
-        print("Contact not found!")
-        
-# edit the contact and update edited contact
-def edit_contact(contact_book):
-    name = input()
-    if name in contact_book:
-        phone = input()
-        email = input()
-        address = input()
-        if phone == '':
-            phone = contact_book[name]['phone']
-        if email == '':
-            email = contact_book[name]['email']
-        if address == '':
-            address = contact_book[name]['address']
+# Contact Book Application
 
-        contact_book[name] = {"phone": phone, "email": email, "address": address}
-        print("Contact updated successfully!")
-    else:
-        print("Contact not found!")
-# delete contact 
-def delete_contact(contact_book):
-    name = input()
-    if name in contact_book:
-        del contact_book[name]
-        print("Contact deleted successfully!")
-    else:
-        print("Contact not found!")
+A simple Python-based contact management system that allows users to add, view, edit, delete, and list contacts.
 
-# listing the all contact
-def list_all_contacts(contact_book):
-    if not contact_book:
-        print("No contacts available.")
-    else:
-        for name, info in contact_book.items():
-            print(f"Name: {name}")
-            print(f"Phone: {info['phone']}")
-            print(f"Email: {info['email']}")
-            print(f"Address: {info['address']}")
-            print() # Blank line between contacts for readability
-            
-# final result of above code using option choosing which defined by numbers
-contact_book = {}
+## Features
+- Add new contacts
+- View contact details
+- Edit existing contacts
+- Delete contacts
+- List all contacts
 
-while True:
-    
-    choice = display_menu()
-
-    
-    if choice == '1':
-        add_contact(contact_book)
-    elif choice == '2':
-        view_contact(contact_book)
-    elif choice == '3':
-        edit_contact(contact_book)
-    elif choice == '4':
-        delete_contact(contact_book)
-    elif choice == '5':
-        list_all_contacts(contact_book)
-    elif choice == '6':
-        break
+## Installation
+No installation required. Just run the script:
+```bash
+python contact_book.py
